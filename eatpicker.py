@@ -24,16 +24,16 @@ def speak_category(category):
 
 def main():
     image_data = [
-        {'path': 'C:\\Users\\ads\\Downloads\\PHYTON PROJECTS\\food_options_image1.png', 'label': 'Image 1'},
-        {'path': 'C:\\Users\\ads\\Downloads\\PHYTON PROJECTS\\food_options_image2.png', 'label': 'Image 2'},
-        {'path': 'C:\\Users\\ads\\Downloads\\PHYTON PROJECTS\\food_options_image3.png', 'label': 'Image 3'},
+        {'path': 'C:\\Users\\ads\\Downloads\\PHYTON PROJECTS\\food_options_image1', 'label': 'Pizza'},
+        {'path': 'C:\\Users\\ads\\Downloads\\PHYTON PROJECTS\\food_options_image2', 'label': 'Burger'},
+        {'path': 'C:\\Users\\ads\\Downloads\\PHYTON PROJECTS\\food_options_image3', 'label': 'Salad'},
         # Add more images and labels as needed
     ]
 
     categories = {
-        'pizza': (0, 0, 400, 300),   # Adjust coordinates for the "pizza" category
-        'burger': (400, 0, 800, 300),  # Adjust coordinates for the "burger" category
-        'salad': (800, 0, 1200, 300),  # Adjust coordinates for the "salad" category
+        'pizza': (0, 0, 400, 300),  
+        'burger': (400, 0, 800, 300),  
+        'salad': (800, 0, 1200, 300), 
         # Add more categories and coordinates as needed
     }
 
@@ -47,3 +47,15 @@ def main():
 
     if image:
         print("Image loaded successfully.")
+
+        # Speak the label of the randomly selected image
+        speak_category(selected_image_label)
+
+        # Display the entire image without zooming
+        display_category(image, (0, 0, image.width, image.height), f"{selected_image_label}")
+
+    # Speak a message about the selected image
+    speak_category(f"Randomly selected food category: {selected_image_label}")
+
+if __name__ == "__main__":
+    main()
